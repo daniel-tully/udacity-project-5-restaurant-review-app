@@ -154,6 +154,13 @@ class DBHelper {
   }
   
   /**
+   * Restaurant image srcset.
+   */
+  static imageSmlUrlForRestaurant(restaurant) {
+    return (`/img/${restaurant.photographSml}`);
+  }
+  
+  /**
    * Restaurant image alt-text.
    */
   static imageAltForRestaurant(restaurant) {

@@ -3,7 +3,8 @@
     "id": 1,
     "name": "Mission Chinese Food",
     "neighborhood": "Manhattan",
-    "photograph": "1.jpg",
+    "photographSml": "1_450.jpg",
+    "photograph": "1_800.jpg",
     "alt": "Mission Chinese Food restaurant interior",
     "address": "171 E Broadway, New York, NY 10002",
     "latlng": {
@@ -43,7 +44,8 @@
     "id": 2,
     "name": "Emily",
     "neighborhood": "Brooklyn",
-    "photograph": "2.jpg",
+    "photographSml": "2_450.jpg",
+    "photograph": "2_800.jpg",
     "alt": "Pizza on a table",
     "address": "919 Fulton St, Brooklyn, NY 11238",
     "latlng": {
@@ -83,7 +85,8 @@
     "id": 3,
     "name": "Kang Ho Dong Baekjeong",
     "neighborhood": "Manhattan",
-    "photograph": "3.jpg",
+    "photographSml": "3_450.jpg",
+    "photograph": "3_800.jpg",
     "alt": "Kang Ho Dong Baekjeong restaurant interior",
     "address": "1 E 32nd St, New York, NY 10016",
     "latlng": {
@@ -123,7 +126,8 @@
     "id": 4,
     "name": "Katz's Delicatessen",
     "neighborhood": "Manhattan",
-    "photograph": "4.jpg",
+    "photographSml": "4_450.jpg",
+    "photograph": "4_800.jpg",
     "alt": "Katz's Delicatessen restaurant exterior",
     "address": "205 E Houston St, New York, NY 10002",
     "latlng": {
@@ -163,7 +167,8 @@
     "id": 5,
     "name": "Roberta's Pizza",
     "neighborhood": "Brooklyn",
-    "photograph": "5.jpg",
+    "photographSml": "5_450.jpg",
+    "photograph": "5_800.jpg",
     "alt": "Roberta's Pizza restaurant interior",
     "address": "261 Moore St, Brooklyn, NY 11206",
     "latlng": {
@@ -203,7 +208,8 @@
     "id": 6,
     "name": "Hometown BBQ",
     "neighborhood": "Brooklyn",
-    "photograph": "6.jpg",
+    "photographSml": "6_450.jpg",
+    "photograph": "6_800.jpg",
     "alt": "Hometown BBQ restaurant interior",
     "address": "454 Van Brunt St, Brooklyn, NY 11231",
     "latlng": {
@@ -243,7 +249,8 @@
     "id": 7,
     "name": "Superiority Burger",
     "neighborhood": "Manhattan",
-    "photograph": "7.jpg",
+    "photographSml": "7_450.jpg",
+    "photograph": "7_800.jpg",
     "alt": "Superiority Burger restaurant interior",
     "address": "430 E 9th St, New York, NY 10009",
     "latlng": {
@@ -283,7 +290,8 @@
     "id": 8,
     "name": "The Dutch",
     "neighborhood": "Manhattan",
-    "photograph": "8.jpg",
+    "photographSml": "8_450.jpg",
+    "photograph": "8_800.jpg",
     "alt": "The Dutch restaurant exterior",
     "address": "131 Sullivan St, New York, NY 10012",
     "latlng": {
@@ -323,7 +331,8 @@
     "id": 9,
     "name": "Mu Ramen",
     "neighborhood": "Queens",
-    "photograph": "9.jpg",
+    "photographSml": "9_450.jpg",
+    "photograph": "9_800.jpg",
     "alt": "Mu Ramen restaurant interior",
     "address": "1209 Jackson Ave, Queens, NY 11101",
     "latlng": {
@@ -363,7 +372,8 @@
     "id": 10,
     "name": "Casa Enrique",
     "neighborhood": "Queens",
-    "photograph": "10.jpg",
+    "photographSml": "10_450.jpg",
+    "photograph": "10_800.jpg",
     "alt": "Casa Enrique restaurant interior",
     "address": "5-48 49th Ave, Queens, NY 11101",
     "latlng": {

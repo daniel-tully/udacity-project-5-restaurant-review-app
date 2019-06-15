@@ -193,3 +193,13 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 
 }
 
+/**
+ * Remove focus from map attribution
+ */
+window.addEventListener('DOMContentLoaded', () => {
+  const mapCredits = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
+  for (let mapCredit of mapCredits) {
+    mapCredit.setAttribute('tabindex', -1);
+  }
+});
+

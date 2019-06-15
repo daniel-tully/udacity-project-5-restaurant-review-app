@@ -54,9 +54,11 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
-  padding: 25px;
+  height: 70px;
   text-align: center;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
 .container {
@@ -219,8 +221,6 @@ nav h1 a {
   width: 100%;
 }
 .inside #footer {
-  bottom: 0;
-  position: absolute;
   width: 100%;
 }
 #restaurant-name {
@@ -307,6 +307,10 @@ nav h1 a {
   border-radius: 15px 0 0 0;
 }
 
+#reviews-list li:last-child {
+  margin-bottom: 0;
+}
+
 .review-details {
   padding: 15px;
 }
@@ -358,12 +362,19 @@ nav h1 a {
   .inside #map {
     height: 100%;
   }
+
   .inside #map-container {
-    height: 100%;
+    height: calc(100% - 80px);
     right: 0;
     top: 80px;
     position: fixed;
     width: 50%;
+  }
+
+  .inside #footer {
+    width: 50%;
+    display: flex;
+    align-items: center;
   }
 
 
