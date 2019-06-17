@@ -31,12 +31,20 @@ fetchNeighborhoods = () => {
  * Set neighborhoods HTML.
  */
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
+  // if using <ul> instead of native <option>, delete next line
   const select = document.getElementById('neighborhoods-select');
+  const nDrop = document.querySelector('.neighb-drop');
   neighborhoods.forEach(neighborhood => {
+    // if using <ul> instead of native <option>, delete next lines...
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
     option.value = neighborhood;
     select.append(option);
+    //...to here
+    const li = document.createElement('li');
+    li.innerHTML = neighborhood;
+    li.setAttribute("role", "option");
+    nDrop.appendChild(li);
   });
 }
 
@@ -173,6 +181,7 @@ createRestaurantHTML = (restaurant) => {
   textCtn.append(more);
 
   li.appendChild(textCtn);
+  li.setAttribute("tabindex", 0);
 
   return li;
 }
@@ -190,16 +199,4 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     }
     self.markers.push(marker);
   });
-
 }
-
-/**
- * Remove focus from map attribution
- */
-window.addEventListener('DOMContentLoaded', () => {
-  const mapCredits = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
-  for (let mapCredit of mapCredits) {
-    mapCredit.setAttribute('tabindex', -1);
-  }
-});
-

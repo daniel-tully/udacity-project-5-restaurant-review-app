@@ -16,6 +16,16 @@ body {
 	margin: 0;
 	position:relative;
 }
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  border-radius: 3px;
+  padding: 10px;
+}
+
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -45,6 +55,20 @@ h3 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+  text-align: center;
+}
+
+header h1 {
+  text-align: center;
+  padding-left: 7px;
+}
+
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
@@ -82,7 +106,7 @@ nav h1 a {
   color: #fff;
   font-size: 14px;
   font-weight: 200;
-  letter-spacing: 10px;
+  letter-spacing: 7px;
   text-transform: uppercase;
 }
 #breadcrumb {
@@ -117,11 +141,17 @@ nav h1 a {
     text-decoration: underline;
 }
 /* ====================== Map ====================== */
+
 #map {
-  height: 300px;
+  height: 250px;
   width: 100%;
   background-color: #ccc;
 }
+
+.list-page #map {
+  margin-top: 80px;
+}
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
@@ -146,6 +176,43 @@ nav h1 a {
   margin: 10px 0;
   padding: 0 10px;
   width: 100%;
+}
+
+.dropdown-container {
+  width: 100%;
+}
+
+.dropdown-container button {
+  width: 100%;
+  font-size: inherit;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.dropdown {
+  margin-top: -5px;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.dropdown li {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.dropdown li:hover {
+  background-color: #efefef;
+}
+
+.shown {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -205,22 +272,14 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Details ====================== */
-.inside header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1001;
-}
 .inside #map-container {
-  height: 300px;
   width: 100%;
-  order: 1;
 }
 .inside #map {
   background-color: #ccc;
   width: 100%;
 }
-.inside #footer {
+#footer {
   width: 100%;
 }
 #restaurant-name {
@@ -336,7 +395,7 @@ nav h1 a {
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
 
   /* generic classes */
   .container {
@@ -345,11 +404,39 @@ nav h1 a {
   }
 
   /* filter */
+  .filter-options .container {
+    display: flex;
+    justify-content: center;
+  }
+
   .filter-options select {
+    width: 300px;
+    margin: 0 0 0 15px;
+  }
+
+  .filter-options h2 {
+    height: 35px;
+    margin: 0;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .dropdown-container {
+    width: 300px;
+  }
+  
+  .dropdown-container button {
     width: 300px;
   }
 
   /* list */
+  .list-page #map {
+    height: 400px;
+  }
+
   #restaurants-list li {
     width: 30%;
   }
