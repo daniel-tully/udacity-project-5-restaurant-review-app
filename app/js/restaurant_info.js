@@ -64,9 +64,12 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
+  // focus restaurant information
+  const restCtn = document.getElementById('restaurant-container');
+  restCtn.setAttribute('tabindex', 0);
+
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
-  
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
@@ -116,6 +119,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.setAttribute('tabindex', 0);
   container.appendChild(title);
 
   if (!reviews) {
@@ -160,6 +164,7 @@ createReviewHTML = (review) => {
   reviewDetails.appendChild(rating);
   reviewDetails.appendChild(comments);
   
+  li.setAttribute("tabindex", 0);
   li.appendChild(reviewDetails);
 
   return li;

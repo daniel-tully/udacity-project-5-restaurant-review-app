@@ -31,20 +31,13 @@ fetchNeighborhoods = () => {
  * Set neighborhoods HTML.
  */
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
-  // if using <ul> instead of native <option>, delete next line
   const select = document.getElementById('neighborhoods-select');
-  const nDrop = document.querySelector('.neighb-drop');
   neighborhoods.forEach(neighborhood => {
-    // if using <ul> instead of native <option>, delete next lines...
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
     option.value = neighborhood;
+    option.setAttribute("value", neighborhood);
     select.append(option);
-    //...to here
-    const li = document.createElement('li');
-    li.innerHTML = neighborhood;
-    li.setAttribute("role", "option");
-    nDrop.appendChild(li);
   });
 }
 
@@ -72,6 +65,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
     const option = document.createElement('option');
     option.innerHTML = cuisine;
     option.value = cuisine;
+    option.setAttribute("value", cuisine);
     select.append(option);
   });
 }

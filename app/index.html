@@ -19,34 +19,19 @@
 
   <!-- main content area -->
   <main id="maincontent">
-    <section id="map-container">
+    <section id="map-container" tabindex="-1">
       <div id="map"></div>
     </section>
     <section class="restaurants-section">
-      <div class="filter-options">
-        <div class="container">
-          <h2>Filter Results</h2>
-          <!-- restaurants -->
-          <div class="listbox-area">
-            <div class="dropdown-container">
-              <button aria-haspopup="listbox" id="exp_button" onclick="dropDown(this)">All neighborhoods</button>
-              <ul tabindex="-1" role="listbox" aria-labelledby="exp_elem" class="dropdown neighb-drop hidden">
-                <li id="exp_elem_Np" role="option" tabindex="0">All neighborhoods</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- native option -->
       <div class="filter-options">
         <div class="container">
           <h2>Filter Results</h2>
-          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-expanded="false">
+          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-expanded="false">
-            <option value="all">All Cuisines</option>
+          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" size="1">
+              <option value="all">All Cuisines</option>
           </select>
         </div>
       </div>
@@ -67,7 +52,6 @@
   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
-  <script type="application/javascript" charset="utf-8" src="js/accessibility.js"></script>
 
 </body>
 </html>
