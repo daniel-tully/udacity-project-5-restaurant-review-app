@@ -32,9 +32,7 @@ self.addEventListener('install', function(event) {
                   '/js/restaurant_info.js',
                   '/index.html',
                   '/restaurant.html',
-                  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
-                  'marker-icon-2x.png',
-                  'marker-shadow.png'
+                  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js'
                 ]
             );
         })
