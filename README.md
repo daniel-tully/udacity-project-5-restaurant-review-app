@@ -3,12 +3,12 @@
 This is a project for the Udacity Front-end Developer Nanodegree that requires students continue to develop a restaurant review web application by:
 - Making it responsive across all devices
 - Work with screen readers for accessibility
-– Use a service worker to make visited content available offline.
+- Use a service worker to make visited content available offline.
 
 ## Table of contents
 
 1. How to run the app
-2. Dependancies.
+2. Dependencies.
 
 ## How to run the app
 
