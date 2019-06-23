@@ -6,6 +6,10 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
 
 /* CSS Document */
 
+* {
+  box-sizing: border-box;
+}
+
 body,
 td,
 th,
@@ -15,6 +19,7 @@ p{
 	color: #333;
 	line-height: 1.5;
 }
+
 body {
 	background-color: #fdfdfd;
 	margin: 0;
@@ -406,8 +411,8 @@ nav h1 a {
 
   /* list */
   #restaurants-list li {
-    width: 46%;
-    margin: 15px 1.65%;
+    width: 45%;
+    margin: 15px 2.2%;
   }
 
 }
@@ -457,7 +462,8 @@ nav h1 a {
   }
 
   #restaurants-list li {
-    width: 30%;
+    width: 29.4%;
+    margin: 15px 1.8%;
   }
 
   #restaurant-container,

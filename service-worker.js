@@ -1,5 +1,5 @@
 /**
- * static cache array
+ * install assets
  */
 const baseCache = [
   '/',
@@ -13,23 +13,22 @@ const baseCache = [
 ];
 
 /**
- * install static cache
+ * install
  */
 self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open('app-cache')
-        .then((cache) => {
-            return cache.addAll(baseCache);
-        })
-        .catch((response) => {
-            console.log(response);
-        })
-    );
+  event.waitUntil(
+    caches.open('app-cache')
+    .then((cache) => {
+      return cache.addAll(baseCache);
+    })
+    .catch((response) => {
+      console.log(response);
+    })
+  );
 });
 
 /**
- * Fetch, cache on demand
- * ref: https://jslovers.com/dynamic-cache-serviceworkers.html
+ * fetch
  */
 self.addEventListener('fetch', (event) => {
   event.respondWith(
@@ -37,9 +36,8 @@ self.addEventListener('fetch', (event) => {
     .then((response) => {
       return caches.open('app-cache')
       .then((cache) => {
-      
-      cache.put(event.request.url, response.clone());
-      return response;
+        cache.put(event.request.url, response.clone());
+        return response;
       })
     })
     .catch(()=>{
