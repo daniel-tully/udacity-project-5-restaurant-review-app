@@ -1,5 +1,5 @@
 /**
- * install assets
+ * base assets
  */
 const baseCache = [
   '/',
@@ -17,10 +17,13 @@ const baseCache = [
  */
 self.addEventListener('install', (event) => {
   event.waitUntil(
+    // open new cache
     caches.open('app-cache')
     .then((cache) => {
+      // add array of urls
       return cache.addAll(baseCache);
     })
+    // error output
     .catch((response) => {
       console.log(response);
     })
@@ -32,16 +35,24 @@ self.addEventListener('install', (event) => {
  */
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    fetch(event.request)
-    .then((response) => {
-      return caches.open('app-cache')
-      .then((cache) => {
-        cache.put(event.request.url, response.clone());
-        return response;
+    // check cache
+    caches.open('app-cache')
+    .then(function(cache) {
+      // for match
+      return cache.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;
+        }
+        // or go to network
+        return fetch(event.request)
+        .then(function(response) {
+          // and add to cache
+          cache.put(event.request, response.clone());
+          // then return fetch response
+          return response;
+        });
       })
-    })
-    .catch(()=>{
-      return caches.match(event.request);
     })
   )
 });
