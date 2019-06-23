@@ -1,6 +1,7 @@
 # Restaurant Reviews App
 
 This is a project for the Udacity Front-end Developer Nanodegree that requires students continue to develop a restaurant review web application by:
+
 - Making it responsive across all devices
 - Work with screen readers for accessibility
 - Use a service worker to make visited content available offline.
