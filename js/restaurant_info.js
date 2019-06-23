@@ -6,6 +6,7 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
   initMap();
+  removeMapTab();
 });
 
 /**
@@ -164,7 +165,7 @@ createReviewHTML = (review) => {
   reviewDetails.appendChild(rating);
   reviewDetails.appendChild(comments);
   
-  li.setAttribute("tabindex", 0);
+  li.setAttribute('tabindex', 0);
   li.appendChild(reviewDetails);
 
   return li;
@@ -194,4 +195,14 @@ getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+/**
+ * map tabindex control
+ */
+removeMapTab = () => {
+  const mapAttAnchors = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
+  for(anchor of mapAttAnchors) {
+    anchor.setAttribute('tabindex', -1)
+  };
 }

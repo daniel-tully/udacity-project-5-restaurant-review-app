@@ -1,4 +1,4 @@
-let restaurants,
+var restaurants,
   neighborhoods,
   cuisines
 var newMap
@@ -7,17 +7,17 @@ var markers = []
 /**
  * service worker script
  */
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js')
-      .then(registration => {
-          console.log('Service Worker is registered', registration);
-      })
-      .catch(err => {
-          console.error('Registration failed:', err);
-      });
-  });
-}
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//       navigator.serviceWorker.register('service-worker.js')
+//       .then(registration => {
+//           console.log('Service Worker is registered', registration);
+//       })
+//       .catch(err => {
+//           console.error('Registration failed:', err);
+//       });
+//   });
+// };
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added 
   fetchNeighborhoods();
   fetchCuisines();
+  removeMapTab();
 });
 
 /**
@@ -51,7 +52,7 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
     option.value = neighborhood;
-    option.setAttribute("value", neighborhood);
+    option.setAttribute('value', neighborhood);
     select.append(option);
   });
 }
@@ -80,7 +81,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
     const option = document.createElement('option');
     option.innerHTML = cuisine;
     option.value = cuisine;
-    option.setAttribute("value", cuisine);
+    option.setAttribute('value', cuisine);
     select.append(option);
   });
 }
@@ -196,7 +197,7 @@ createRestaurantHTML = (restaurant) => {
   textCtn.append(more);
 
   li.appendChild(textCtn);
-  li.setAttribute("tabindex", 0);
+  li.setAttribute('tabindex', 0);
 
   return li;
 }
@@ -208,10 +209,20 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
-    marker.on("click", onClick);
+    marker.on('click', onClick);
     function onClick() {
       window.location.href = marker.options.url;
     }
     self.markers.push(marker);
   });
+}
+
+/**
+ * map tabindex control
+ */
+removeMapTab = () => {
+  const mapAttAnchors = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
+  for(anchor of mapAttAnchors) {
+    anchor.setAttribute('tabindex', -1)
+  };
 }

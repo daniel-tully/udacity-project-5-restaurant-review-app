@@ -19,18 +19,17 @@
 
   <!-- main content area -->
   <main id="maincontent">
-    <section id="map-container" tabindex="-1">
+    <section id="map-container">
       <div id="map"></div>
     </section>
     <section class="restaurants-section">
-      <!-- native option -->
-      <div class="filter-options">
+      <div class="filter-options" aria-label="Filter results" tabindex="0">
         <div class="container">
           <h2>Filter Results</h2>
           <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" size="1">
+          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
               <option value="all">All Cuisines</option>
           </select>
         </div>

@@ -1,59 +1,49 @@
-self.addEventListener('install', function(event) {
+/**
+ * static cache array
+ */
+const baseCache = [
+  '/',
+  '/css/styles.css',
+  '/data/restaurants.json',
+  '/js/dbhelper.js',
+  '/js/main.js',
+  '/js/restaurant_info.js',
+  '/index.html',
+  '/restaurant.html'
+];
+
+/**
+ * install static cache
+ */
+self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open('app-cache')
-        .then(function(cache) {
-            return cache.addAll(
-                [
-                  '/',
-                  '/css/styles.css',
-                  '/data/restaurants.json',
-                  '/js/dbhelper.js',
-                  '/js/main.js',
-                  '/img/1_450.jpg',
-                  '/img/1_800.jpg',
-                  '/img/2_450.jpg',
-                  '/img/2_800.jpg',
-                  '/img/3_450.jpg',
-                  '/img/3_800.jpg',
-                  '/img/4_450.jpg',
-                  '/img/4_800.jpg',
-                  '/img/5_450.jpg',
-                  '/img/5_800.jpg',
-                  '/img/6_450.jpg',
-                  '/img/6_800.jpg',
-                  '/img/7_450.jpg',
-                  '/img/7_800.jpg',
-                  '/img/8_450.jpg',
-                  '/img/8_800.jpg',
-                  '/img/9_450.jpg',
-                  '/img/9_800.jpg',
-                  '/img/10_450.jpg',
-                  '/img/10_800.jpg',
-                  '/js/restaurant_info.js',
-                  '/index.html',
-                  '/restaurant.html',
-                  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js'
-                ]
-            );
+        .then((cache) => {
+            return cache.addAll(baseCache);
         })
         .catch((response) => {
             console.log(response);
         })
     );
 });
-  
 
-self.addEventListener('fetch', function(event) {
+/**
+ * Fetch, cache on demand
+ * ref: https://jslovers.com/dynamic-cache-serviceworkers.html
+ */
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
+    fetch(event.request)
+    .then((response) => {
+      return caches.open('app-cache')
+      .then((cache) => {
+      
+      cache.put(event.request.url, response.clone());
+      return response;
       })
-      .catch((error) => {
-        console.log(error.responseText);
-      })
-  );
+    })
+    .catch(()=>{
+      return caches.match(event.request);
+    })
+  )
 });
