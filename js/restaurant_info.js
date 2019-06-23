@@ -6,7 +6,6 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
   initMap();
-  removeMapTab();
 });
 
 /**
@@ -32,6 +31,13 @@ initMap = () => {
       }).addTo(newMap);
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
+
+      // tab control - accessibility
+      const mapAttAnchors = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
+      for(anchor of mapAttAnchors) {
+        anchor.setAttribute('tabindex', -1);
+      };
+
     }
   });
 }
@@ -195,14 +201,4 @@ getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
-/**
- * map tabindex control
- */
-removeMapTab = () => {
-  const mapAttAnchors = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
-  for(anchor of mapAttAnchors) {
-    anchor.setAttribute('tabindex', -1)
-  };
 }

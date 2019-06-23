@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added 
   fetchNeighborhoods();
   fetchCuisines();
-  removeMapTab();
 });
 
 /**
@@ -105,6 +104,12 @@ initMap = () => {
   }).addTo(newMap);
 
   updateRestaurants();
+
+  // tab control - accessibility
+  const mapAttAnchors = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
+  for(anchor of mapAttAnchors) {
+    anchor.setAttribute('tabindex', -1);
+  };
 }
 
 /**
@@ -215,14 +220,4 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     }
     self.markers.push(marker);
   });
-}
-
-/**
- * map tabindex control
- */
-removeMapTab = () => {
-  const mapAttAnchors = document.querySelector('.leaflet-control-attribution').getElementsByTagName('a');
-  for(anchor of mapAttAnchors) {
-    anchor.setAttribute('tabindex', -1)
-  };
 }
